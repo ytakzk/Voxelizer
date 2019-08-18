@@ -26,6 +26,7 @@ unit = S
 
 if isinstance(mesh, rg.Mesh):
     
+    mesh.UnifyNormals()
     mesh.Weld(math.pi)
 
     box = mesh.GetBoundingBox(rg.Plane.WorldXY)
