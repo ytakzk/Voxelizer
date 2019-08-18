@@ -79,7 +79,7 @@ if isinstance(mesh, rg.Mesh):
 
     min_x = (max_x + min_x) * 0.5 - (num_x * unit * 0.5) 
     min_y = (max_y + min_y) * 0.5 - (num_y * unit * 0.5) 
-    min_z = (max_z + min_z) * 0.5 - (num_z * unit * 0.5) 
+    min_z = (max_z + min_z) * 0.5 - (num_z * unit * 0.5)
     
     horizontal_curves = {}
     vertical_curves   = {}
@@ -137,7 +137,6 @@ if isinstance(mesh, rg.Mesh):
                 plane = vertical_planes[z]
                 
                 curve = curve.ToNurbsCurve()
-                
                 intersections = rg.Intersect.Intersection.CurvePlane(curve, plane, unit * 0.001)
                 
                 if len(intersections) < 2:
@@ -147,11 +146,17 @@ if isinstance(mesh, rg.Mesh):
                     
                 for intersect in intersections:
                     
-                    ys.append(intersect.PointA)
-                
-                ys = list(set(ys)) 
-                ys.sort()
-
+                    has_point = False
+                    
+                    for y in ys:
+                        if y.DistanceTo(intersect.PointA) < 0.01:
+                            has_point = True
+                    
+                    if not has_point:
+                        ys.append(intersect.PointA)
+                                
+                ys = sorted(ys, key=lambda p: p.Y)  
+                    
                 num = int(len(ys) / 2)
                 
                 for i in range(num):
