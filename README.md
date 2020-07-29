@@ -2,7 +2,7 @@
 
 ![Voxelizer](./img/ss.jpg?raw=true)
 
-Voxelizer provides a set of functions to voxelize a mesh. Any closed mesh can be transformed into a collection of voxels. The size of voxels is adjastable. Plus, Voxelizer can automatically close meshes even if they are opened. It is of cource better that you feed a closed mesh though, just give it a try with any meshes you want. Let's get voxelized!
+Voxelizer provides a set of functions to voxelize a mesh. Any closed mesh can be transformed into a collection of voxels. The size of voxels is adjastable. Plus, Voxelizer can automatically close meshes even if they are opened. It is of cource better than you feed a closed mesh though, just give it a try with any meshes you want. Let's get voxelized!
 
 
 ## Installation
